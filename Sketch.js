@@ -21,6 +21,7 @@ function Update(select) {
   clearInterval(frames);
   if(select != 5) {
     settingsRanges = document.querySelectorAll('.Settings input[type="range"]');
+
     if(select >= 0) {
       settingsTextfields = document.querySelectorAll('.Settings input[type="number"]');
       settingsRanges[select].value = parseFloat(settingsTextfields[select].value);
@@ -30,6 +31,7 @@ function Update(select) {
       settings[i] = parseFloat(settingsRanges[i].value);
     }
   }
+
   if(select < 0) {
     for (var i = 0; i < settingsRanges.length; i++) {
       settingsTextfields[i].value = settings[i];
@@ -56,6 +58,7 @@ var lightB = 0.5;
 
 var canvas = document.getElementById('Sketch');
 var ctx = canvas.getContext('2d');
+
 function DrawPath(Dtheta, Dr, Lw) {
   bound = (canvas.width * 0.5 * Dtheta)/Dr;
   var hue = hueA + (hueB - hueA) * (theta - 0)/(bound - 0);
@@ -64,6 +67,7 @@ function DrawPath(Dtheta, Dr, Lw) {
   var rgb = RGB(hue, sat, light);
   ctx.strokeStyle = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
   ctx.lineWidth = Lw;
+  ctx.lineCap = 'round';
   ctx.beginPath();
   ctx.moveTo(r * Math.cos(theta) + canvas.width/2, r * Math.sin(theta) + canvas.height/2);
   r += Dr;
@@ -172,7 +176,7 @@ function LoadPreset() {
 }
 
 function Randomise() {
-  settings = [R(100), R(3), 10, R(15)];
+  settings = [R(6.28318530718), R(3), 10, R(10)];
   hueA = R(360); satA = R(1); lightA = R(1);
   hueB = R(360); satB = R(1); lightB = R(1);
   for(var i = 0; i < settings.length; i++) {

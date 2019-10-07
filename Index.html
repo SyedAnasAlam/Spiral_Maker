@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
-    <title>Spirals and patterns</title>
+    <title>Spiral Art Drawer</title>
+    <meta name="description" content="Interactive tool for generating artistic spiral patterns which can be used as wallpapers and more!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="Stylesheet.css"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <div class="Navbar">
-      <h1>Spiral Maker</h1>
+      <h1 class="Header">Spiral Art Drawer</h1>
     </div>
 
     <hr>
@@ -16,7 +22,7 @@
     <div class="Container">
       <div class="Settings">
         <h4>Angle</h4>
-        <input id="Angle" onchange="Update(-1)" type="range" min="0.01" max="100" step="0.001">
+        <input id="Angle" onchange="Update(-1)" type="range" min="0.01" max="6.28318530718" step="0.01">
         <input id="AngleTxt" type="number" oninput="Update(0)" step="any">
         <h4>Radius</h4>
         <input id="Radius" onchange="Update(-1)" type="range" min="0.1" max="3" step="0.001">
@@ -25,7 +31,7 @@
         <input id="Frametime" onchange="Update(-1)" type="range" min="10" max="50" step="1" value="10">
         <input id="FrametimeTxt" type="number" oninput="Update(2)" step="any">
         <h4>Linewidth</h4>
-        <input id="Linewidth" onchange="Update(-1)" type="range" min="1" max="15" step="0.1" value="2">
+        <input id="Linewidth" onchange="Update(-1)" type="range" min="1" max="10" step="0.1" value="2">
         <input id="LinewidthTxt" type="number" oninput="Update(3)" step="any">
 
         <div class="Controls">
@@ -38,6 +44,7 @@
           </select>
         </div>
       </div>
+
       <div class="Colorpicker">
         <canvas id="Colorpicker" width="150" height="150"></canvas>
         <canvas id="Top" width="150" height="150"></canvas>
@@ -75,6 +82,6 @@
         <li>Right click on the spiral to save it as a picture</li>
       </ul>
     </div>
-    <script src="Sketch.js" charset="utf-8"></script>
+    <script src="Sketch.js"></script>
   </body>
 </html>

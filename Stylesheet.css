@@ -3,9 +3,13 @@ body, h1, h4, button, select, input, option{
   font-weight: 300;
 }
 
+.Header {
+  font-family: 'Patua One', cursive;
+}
+
 h4 {
   font-size: 18px;
-  margin-bottom: -3px;
+  margin-bottom: 0px;
 }
 
 button {
@@ -18,7 +22,7 @@ button {
   transition-duration: 0.4s;
   font-size: 14px;
   margin: 3px;
-  outline: 0;
+  outline: none;
 }
 
 button:hover {
@@ -39,22 +43,22 @@ select {
 }
 
 hr {
-  border: 0px;
-  height: 3px;
-  background: white;
-  background-image: linear-gradient(to right, #ccc, #2d3436, #ccc);
+  border: 4px;
+  height: 4px;
+  background: #A3CB38;
   border-radius: 1.5px;
   margin: 0px;
 }
 
 .Container {
   display: grid;
-  grid-template-columns: 1fr 1fr 5fr;
+  grid-template-columns: 2fr 2fr 5fr;
+  position: relative;
 }
 
 .Settings, .Colorpicker {
   padding: 10px;
-  border-right: 2px solid #2d3436;
+  border-right: 4px solid #A3CB38;
   position: relative;
 }
 
@@ -81,6 +85,7 @@ input[type=range] {
   border-radius: 2px;
   cursor: pointer;
   margin-bottom: 15px;
+  margin-top: 7.5px;
 }
 
 
@@ -92,7 +97,29 @@ input[type=range]::-webkit-slider-thumb {
   border-radius: 9px;
   background: white;
   cursor: pointer;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75)
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+input[type=range]::-ms-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 input[type=number] {
@@ -102,6 +129,8 @@ input[type=number] {
   border-radius: 5px;
   font-size: 14px;
   padding: 5px;
+  font-size: 16px;
+  -moz-appearance: textfield;
 }
 
 p {
@@ -118,6 +147,11 @@ p {
   position: absolute;
   bottom: 5%;
   width: 90%;
+  bottom: 5px;
+}
+
+.Controls button {
+  font-size: 16px;
 }
 
 .Instructions {
