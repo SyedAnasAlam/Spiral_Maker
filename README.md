@@ -1,4 +1,4 @@
 # Spiral_Maker
-A spiral maker with sliders to generate beautiful spirals. Also has a HSL color pick, which can be used to select the color of the spiral. Select mutliple colors to make the spiral transistion between to colors
+A spiral maker maker with a HSL color picker. The .pde file is the original Processing sketch. 
 
-https://spiral-maker.netlify.com/
+https://spiral-art-drawer.netlify.com/
