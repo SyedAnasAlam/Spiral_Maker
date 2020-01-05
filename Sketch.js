@@ -35,7 +35,7 @@ function DrawPath(Dtheta, Dr, Lw) {
   var h = map(r, 0, canvas.width/2, h1, h2);
   var s = map(r, 0, canvas.width/2, s1, s2);
   var l = map(r, 0, canvas.width/2, l1, l2);
-  var rgb = RGB(h, s, l);
+  var rgb = toRGB(h, s, l);
   ctx.strokeStyle = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
   ctx.lineWidth = Lw;
   ctx.lineCap = 'round';
@@ -77,7 +77,7 @@ function Update(select) {
 
   r = 0;
   theta = 0;
-  var backgrundColor = RGB(backH, backS, backL);
+  var backgrundColor = toRGB(backH, backS, backL);
   ctx.fillStyle = 'rgb(' + backgrundColor[0] + ',' + backgrundColor[1] + ',' + backgrundColor[2] + ')';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -105,7 +105,7 @@ function UpdateHue() {
   ctx3.moveTo(canvas2.width/2, canvas2.height/2);
   ctx3.lineTo(Math.cos(newH - 0.5 * Math.PI) * r2 + canvas2.width/2, Math.sin(newH - 0.5 * Math.PI) * r2 + canvas2.height/2);
   ctx3.stroke();
-  var C = RGB(newH, newS, newL);
+  var C = toRGB(newH, newS, newL);
   document.getElementById('ColorDisplay').style.background = 'rgb(' + C[0] + ',' + C[1] + ',' + C[2] + ')';
   document.getElementById('ColorVal').innerHTML = 'H: ' + (newH) + ' S: ' + newS + ' L: ' + newL;
 }
@@ -114,7 +114,7 @@ function UpdateSatLight() {
   newS = document.getElementById('Sat').value;
   newL = document.getElementById('Light').value;
   DrawSpectrum(newS, newL);
-  var C2 = RGB(newH, newS, newL);
+  var C2 = toRGB(newH, newS, newL);
   document.getElementById('ColorDisplay').style.background = 'rgb(' + C2[0] + ',' + C2[1] + ',' + C2[2] + ')';
   document.getElementById('ColorVal').innerHTML = 'H: ' + newH + ' S: ' + newS + ' L: ' + newL;
 }
@@ -122,7 +122,7 @@ function UpdateSatLight() {
 function DrawSpectrum(s, l) {
   ctx2.clearRect(0, 0, canvas2.width/2, canvas2.height/2);
   for (var a = 0; a < Math.PI * 2; a+= 0.001) {
-    var c = RGB(a, s, l);
+    var c = toRGB(a, s, l);
     ctx2.strokeStyle = 'rgb(' + c[0] + ',' + c[1] + ',' + c[2] + ')';
     ctx2.beginPath();
     ctx2.lineWidth = 4;
@@ -148,7 +148,7 @@ function setBackgroundColor(select) {
     backL = document.getElementById('Light').value;
   }
 
-  var b = RGB(backH, backS, backL);
+  var b = toRGB(backH, backS, backL);
   ctx.fillStyle = 'rgb(' + b[0] + ',' + b[1] + ',' + b[2] + ')';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
@@ -192,7 +192,7 @@ function Randomise() {
   Update(selectEnum.hardCodedSettings);
 }
 
-function RGB(h, s, l) {
+function toRGB(h, s, l) {
   var c = (1 - Math.abs(2 * l - 1)) * s;
   var dh = h/(Math.PI/3);
   var x = c * (1 - Math.abs(dh % 2 - 1));
