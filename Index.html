@@ -2,20 +2,9 @@
 <html lang="en" dir="ltr">
 
   <head>
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150429220-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-150429220-1');
-    </script>
-  
     <meta charset="utf-8">
     <title>Spiral Art Drawer</title>
-    <meta name="description" content="Interactive tool for generating artistic spiral patterns which can be used as wallpapers and more!">
+    <meta name="description" content="Interactive tool for generating artistic spiral patterns which can be used as wallpapers and more">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="Stylesheet.css"/>
@@ -24,6 +13,7 @@
   </head>
 
   <body>
+
     <div class="Navbar">
       <h1 class="Header">Spiral Art Drawer</h1>
     </div>
@@ -33,17 +23,17 @@
     <div class="Container">
       <div class="Settings">
         <h4>Angle</h4>
-        <input id="Angle" onchange="Update(-1)" type="range" min="0.01" max="6.28318530718" step="0.01">
-        <input id="AngleTxt" type="number" oninput="Update(0)" step="any">
+        <input id="Angle" onchange="Update(selectEnum.sliderSettings)" type="range" min="0.01" max="6.28318530718" step="0.01">
+        <input id="AngleTxt" type="number" oninput="Update(selectEnum.textboxSettings)" step="any" value="0">
         <h4>Radius</h4>
-        <input id="Radius" onchange="Update(-1)" type="range" min="0.1" max="3" step="0.001">
-        <input id="RadiusTxt" type="number" oninput="Update(1)" step="any">
+        <input id="Radius" onchange="Update(selectEnum.sliderSettings)" type="range" min="0.1" max="3" step="0.001">
+        <input id="RadiusTxt" type="number" oninput="Update(selectEnum.textboxSettings)" step="any">
         <h4>Frametime</h4>
-        <input id="Frametime" onchange="Update(-1)" type="range" min="10" max="50" step="1" value="10">
-        <input id="FrametimeTxt" type="number" oninput="Update(2)" step="any">
+        <input id="Frametime" onchange="Update(selectEnum.sliderSettings)" type="range" min="10" max="50" step="1" value="10">
+        <input id="FrametimeTxt" type="number" oninput="Update(selectEnum.textboxSettings)" step="any">
         <h4>Linewidth</h4>
-        <input id="Linewidth" onchange="Update(-1)" type="range" min="1" max="10" step="0.1" value="2">
-        <input id="LinewidthTxt" type="number" oninput="Update(3)" step="any">
+        <input id="Linewidth" onchange="Update(selectEnum.sliderSettings)" type="range" min="1" max="10" step="0.1" value="2">
+        <input id="LinewidthTxt" type="number" oninput="Update(selectEnum.textboxSettings)" step="any">
 
         <div class="Controls">
           <button type="button" onclick="Randomise()">Randomise!</button>
@@ -77,6 +67,7 @@
       <div class="Canvas">
         <canvas id="Sketch" width="500" height="500"></canvas>
       </div>
+
     </div>
 
     <hr>
@@ -89,7 +80,7 @@
         <li>The right menu is a colorpicker - change the values for hue, saturation and lightness to make a color</li>
         <li>Once you have selected a color press either set color A or set color B - The spiral will transistion between color A and color B</li>
         <li>Select a preset from the dropdown and and click 'load preset' to see premade spirals</li>
-        <li>Click the 'Randomize' button to see different spirals emerge each time!</li>
+        <li>Click the 'Randomize' button to see spirals with randomised settings</li>
         <li>Right click on the spiral to save it as a picture</li>
       </ul>
     </div>
